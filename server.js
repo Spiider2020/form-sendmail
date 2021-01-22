@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
 const app = express();
 
@@ -21,22 +22,24 @@ transporter.verify(function (error, success) {
 });
 
 app.use(bodyParser.json());
+app.use(cors());
 // Routes
-app.post('/', async function (req, res) {
+app.post('/send', async function (req, res) {
 	const { name, email, phone, company, message } = req.body;
+	console.log(req.body);
 	const mail_obj = {
 		from: '"mailer DreamOnIT"<acc.dreamonit@gmail.com>',
 		to: 'recno_recno@yahoo.com',
-		subject: 'completare formular',
+		subject: name,
 		text: `Nume client: ${name} \n email: ${email} \n telefon: ${phone} \n company: ${company}\n V-a scris urmatorul mesaj :\n ${message}`,
 	};
 	await transporter.sendMail(mail_obj, function (err, info) {
 		if (err) {
 			console.log(err);
-			res.send('error could not send data');
+			res.json('error could not send data');
 		} else {
 			console.log('Form data sent!');
-			res.send('success');
+			res.json('success');
 		}
 	});
 });
