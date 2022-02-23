@@ -8,7 +8,7 @@
 * [Usage](#usage)
 
 ## General info
-This project is small little API I used a while back to receive contact form data from the front-end and send it using nodemailer to a specified email.
+This project is little API I used a while back to receive contact form data from the front-end and send it using nodemailer to a specified email.
 This is useful when you dont want to spin up a whole database for the contact form on your website.
 
 ## Technologies
