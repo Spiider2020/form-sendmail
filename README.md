@@ -57,4 +57,4 @@ This receives post requests with a json body that has 5 fiels, but you can modif
 ```
 From your front-end create a /post request to the /send route of the api ( ex. https<span></span>://yourapidomain.com/send ).  
 
-**Some email providers will not allow the connection. You can SMTP relays as a workaround.**
+**Some email providers will not allow the connection. You can use SMTP relays as a workaround.**
